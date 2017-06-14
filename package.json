@@ -1,0 +1,30 @@
+{
+  "name": "spotify-song-preview",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juancuiule/spotify-song-preview.git"
+  },
+  "author": "Juan Cuiule",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juancuiule/spotify-song-preview/issues"
+  },
+  "homepage": "https://github.com/juancuiule/spotify-song-preview#readme",
+  "dependencies": {
+    "react": "^15.6.0",
+    "react-dom": "^15.6.0",
+    "spotify-graphql": "^1.4.0"
+  },
+  "devDependencies": {
+    "react-scripts": "1.0.7"
+  }
+}

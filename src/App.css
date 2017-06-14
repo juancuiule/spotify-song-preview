@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css?family=Overpass");
+.song {
+  display: flex;
+  width: 350px;
+  max-height: 150px;
+  margin: 10px;
+  background-color: rgba(42, 42, 42, 0.5);
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.song .song-cover {
+  flex: 4;
+}
+.song .song-cover img {
+  height: 100%;
+  width: 100%;
+}
+.song .song-data {
+  flex: 6;
+  font-family: 'Overpass';
+}
+.song .song-data .songName,
+.song .song-data .autor,
+.song .song-data .album {
+  margin: 10px;
+}
+
+.SongsList {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+}
