@@ -10,34 +10,35 @@ class Song extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			time: 0,
-			audio: ''
+			isPlaying: false
 		}
-
-		this.handleUpdate = this.handleUpdate.bind(this);
-		this.mouseOut = this.mouseOut.bind(this);
+		this.startPlaying = this.startPlaying.bind(this)
+		this.pauseMusic = this.pauseMusic.bind(this)
 	}
 
-	handleUpdate() {
+	startPlaying() {
 		this.setState({
-			audio: new Audio(this.props.coverUrl)
+			isPlaying: true
 		})
-		this.state.audio.currentTime = this.state.time;
-		this.state.audio.play();
+		this._player.play()
 	}
 
-	mouseOut() {
+	pauseMusic() {
 		this.setState({
-			time: audio.currentTime
+			isPlaying: false
 		})
-		this.state.audio.pause()
+		this._player.pause()
+	}
+
+	componentDidUpdate(prevProps, prevState) {
+		if(prevProps.previewUrl != this.props.previewUrl) {this._player.load()}
 	}
 
 	render() {
 		return(
 			<div className="song"
-				onMouseEnter={this.onMouseEnterHandler}
-        onMouseLeave={this.onMouseLeaveHandler}>
+				onMouseOver={this.startPlaying}
+				onMouseOut={this.pauseMusic}>
 				<div className="song-cover">
 					<img src={this.props.coverUrl} alt="Album Cover" />
 				</div>
@@ -46,6 +47,9 @@ class Song extends Component {
 					<div className="autor">{this.props.autor}</div>
 					<div className="album">{this.props.album}</div>
 				</div>
+				<audio ref={(ref) => this._player = ref} autoPlay={this.state.isPlaying}>
+          <source src={this.props.previewUrl} />
+        </audio>
 			</div>
 		)
 	}
@@ -62,7 +66,7 @@ class SongsList extends Component {
 							songName={song.name}
 							autor={this.props.data.artist.name}
 							album={song.album.name}
-							className="SongCard"
+							previewUrl={song.preview_url}
 						/>
 					)
 				})}
