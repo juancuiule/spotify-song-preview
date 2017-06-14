@@ -20,11 +20,12 @@
   },
   "homepage": "https://github.com/juancuiule/spotify-song-preview#readme",
   "dependencies": {
+    "jest-cli": "^20.0.4",
     "react": "^15.6.0",
     "react-dom": "^15.6.0",
     "spotify-graphql": "^1.4.0"
   },
   "devDependencies": {
-    "react-scripts": "1.0.7"
+    "react-scripts": "^1.0.7"
   }
 }
